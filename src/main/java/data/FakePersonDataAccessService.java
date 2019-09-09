@@ -29,4 +29,29 @@ public class FakePersonDataAccessService implements PersonDAO
 		return persons;
 	}
 
+	@Override
+	public int deletePerson(UUID id)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updatePerson(UUID id, Person updatedPerson)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Person selectPersonById(UUID id)
+	{
+		for(Person p : persons)
+		{
+			if(p.getId().equals(id))
+				return p;
+		}
+		return null;
+	}
+
 }

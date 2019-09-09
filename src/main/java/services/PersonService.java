@@ -1,6 +1,7 @@
 package services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,18 @@ public class PersonService
 	public int insertPerson(Person newPerson)
 	{
 		System.out.println("In Service");
-		return personDAO.insertPerson(newPerson);		
+		if(newPerson.getId()!=null)
+			return personDAO.insertPerson(newPerson.getId(),newPerson);
+		return personDAO.insertPerson(newPerson);
 	}
 	
 	public List<Person> viewPersons()
 	{
 		return personDAO.viewPersons();
 	}
-
+	
+	public Person selectPersonById(UUID id)
+	{
+		return personDAO.selectPersonById(id);
+	}
 }

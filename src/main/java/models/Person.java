@@ -2,6 +2,8 @@ package models;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Person
