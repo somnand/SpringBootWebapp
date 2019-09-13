@@ -12,15 +12,10 @@ import models.Person;
 @Service
 public class PersonService
 {
-	private final PersonDAO personDAO;		
 	@Autowired
-	public PersonService(PersonDAO personDAO)
-	{
-		super();
-		this.personDAO = personDAO;
-	}
-
-	public int insertPerson(Person newPerson)
+	private PersonDAO personDAO;		
+	
+	public boolean insertPerson(Person newPerson)
 	{
 		System.out.println("In Service");
 		if(newPerson.getId()!=null)
@@ -36,5 +31,15 @@ public class PersonService
 	public Person selectPersonById(UUID id)
 	{
 		return personDAO.selectPersonById(id);
+	}
+	
+	public boolean deletePerson(UUID id)
+	{
+		return personDAO.deletePerson(id);
+	}
+	
+	public boolean updatePerson(UUID id, Person updatedPerson)
+	{
+		return personDAO.updatePerson(id, updatedPerson);
 	}
 }

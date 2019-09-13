@@ -14,12 +14,12 @@ public class FakePersonDataAccessService implements PersonDAO
 	private static List<Person> persons = new ArrayList<>();
 
 	@Override
-	public int insertPerson(UUID id, Person person)
+	public boolean insertPerson(UUID id, Person person)
 	{
 		System.out.println("In DAO");
 		person.setId(id);
 		persons.add(person);
-		return 1;
+		return true;
 	}
 	
 	@Override
@@ -30,17 +30,33 @@ public class FakePersonDataAccessService implements PersonDAO
 	}
 
 	@Override
-	public int deletePerson(UUID id)
+	public boolean deletePerson(UUID id)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		for(Person p : persons)
+		{
+			if(p.getId().equals(id))
+			{
+				persons.remove(p);
+				return true;
+			}
+		}		
+		return false;
 	}
 
 	@Override
-	public int updatePerson(UUID id, Person updatedPerson)
+	public boolean updatePerson(UUID id, Person updatedPerson)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		for(Person p : persons)
+		{
+			if(p.getId().equals(id))
+			{
+				persons.remove(p);
+				updatedPerson.setId(p.getId());
+				persons.add(updatedPerson);
+				return true;
+			}
+		}		
+		return false;
 	}
 
 	@Override

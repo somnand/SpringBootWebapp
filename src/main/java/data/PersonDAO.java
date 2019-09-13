@@ -7,16 +7,16 @@ import models.Person;
 
 public interface PersonDAO
 {	
-	default int insertPerson(Person person)
+	default boolean insertPerson(Person person)
 	{
 		System.out.println("Default method!");
 		UUID id = UUID.randomUUID();
 		return insertPerson(id, person);
 	}
 	
-	int insertPerson(UUID id,Person person);
+	boolean insertPerson(UUID id,Person person);
 	List<Person> viewPersons();
-	int deletePerson(UUID id);
-	int updatePerson(UUID id,Person updatedPerson);
+	boolean deletePerson(UUID id);
+	boolean updatePerson(UUID id,Person updatedPerson);
 	Person selectPersonById(UUID id);
 }
