@@ -1,4 +1,4 @@
-package data;
+package dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import models.Person;
 
-@Repository
+@Repository("fakeRepo")
 public class FakePersonDataAccessService implements PersonDAO
 {
 	private static List<Person> persons = new ArrayList<>();

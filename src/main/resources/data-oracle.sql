@@ -1,1 +1,0 @@
-insert into client values(1,'Somsurya Nanda');

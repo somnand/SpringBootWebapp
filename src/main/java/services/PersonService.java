@@ -4,15 +4,17 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import data.PersonDAO;
+import dao.PersonDAO;
 import models.Person;
 
 @Service
 public class PersonService
 {
 	@Autowired
+	@Qualifier("oracleRepo")
 	private PersonDAO personDAO;		
 	
 	public boolean insertPerson(Person newPerson)

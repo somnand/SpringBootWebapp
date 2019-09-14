@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Person
+public class Person implements DBEntity
 {
 	private UUID id;
 	private String name;

@@ -9,13 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import data.FakePersonDataAccessService;
+import dao.FakePersonDataAccessService;
 import models.Person;
 import services.PersonService;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan(basePackages = { "controllers", "data", "services" })
+@ComponentScan(basePackages = { "controllers", "dao", "services" })
 public class SpringBootWebappApplication
 {
 	private static PersonService personService;
