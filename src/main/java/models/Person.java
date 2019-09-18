@@ -3,11 +3,17 @@ package models;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
 public class Person implements DBEntity
 {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private UUID id;
 	private String name;
 	
