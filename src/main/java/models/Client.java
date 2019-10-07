@@ -1,26 +1,31 @@
 package models;
 
-public class Client 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="client")
+public class Client
 {
+	@Id
 	private int id;
-	private String name;
-	private String language;
-	public int getId() {
+	private String clientName;
+	
+	public int getId()
+	{
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(int id)
+	{
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getClientName()
+	{
+		return clientName;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getLanguage() {
-		return language;
-	}
-	public void setLanguage(String language) {
-		this.language = language;
-	}
+	public void setClientName(String clientName)
+	{
+		this.clientName = clientName;
+	}	
 }
