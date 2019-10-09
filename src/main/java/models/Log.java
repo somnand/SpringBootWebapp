@@ -14,6 +14,11 @@ public class Log
     private String tinyURL;
     private String url;
 
+    public Log()
+    {
+	super();
+    }
+    
     public Log(String tinyURL, String url)
     {
 	super();	

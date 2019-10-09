@@ -19,10 +19,15 @@ public class DBInitializer implements CommandLineRunner
     public void run(String[] args)
     {
 	System.out.println("Invoking the command line runner **TEST-DATA**");
-
-	Log l1 = new Log("bit.ly/", "www.tinyurl.com/long-url-001");
-	tinyDAO.save(l1);
-
-	System.out.println("Database initialization finised");
+	long start=System.currentTimeMillis();
+	tinyDAO.deleteAll();//Clean the database
+	int N=10;
+	for(int i=0;i<N;i++)
+	{
+	    Log l = new Log("bit.ly"+i, "www.tinyurl.com/long-url-00"+i);
+	    tinyDAO.save(l);	    
+	}
+	long end=System.currentTimeMillis();
+	System.out.println("Database initialization finised in "+(end-start)+" ms");
     }
 }
